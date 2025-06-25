@@ -14,37 +14,37 @@
 
                     <div class="col-lg-3">
                         <div class="links-group">
-                            <h6 class="fsz-24 mb-20"> {{ t('footer.about_company') }} </h6>
+                            <h6 class="fsz-24 mb-20">{{ t('footer.about_company') }}</h6>
                             <ul class="links">
-                                <li><a href="#"> {{ t('footer.who_we_are') }} </a></li>
-                                <li><a href="#"> {{ t('footer.vision') }} </a></li>
-                                <li><a href="#"> {{ t('footer.mission') }} </a></li>
-                                <li><a href="#"> {{ t('footer.ceo_message') }} </a></li>
-                                <li><a href="#"> {{ t('footer.our_services') }} </a></li>
+                                <li><a href="#">{{ t('footer.who_we_are') }}</a></li>
+                                <li><a href="#">{{ t('footer.vision') }}</a></li>
+                                <li><a href="#">{{ t('footer.mission') }}</a></li>
+                                <li><a href="#">{{ t('footer.ceo_message') }}</a></li>
+                                <li><a href="#">{{ t('footer.our_services') }}</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <div class="links-group">
-                            <h6 class="fsz-24 mb-20"> {{ t('footer.contact_us') }} </h6>
+                            <h6 class="fsz-24 mb-20">{{ t('footer.contact_us') }}</h6>
                             <ul class="links">
                                 <li>
                                     <a href="#">
                                         <i class="fal fa-map-marker me-2"></i>
-                                        <span class="txt"> {{ t('footer.address') }} </span>
+                                        <span class="txt">{{ t('footer.address') }}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="fal fa-phone me-2"></i>
-                                        <span class="txt"> 0503025916 </span>
+                                        <span class="txt">0503025916</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="fal fa-envelope me-2"></i>
-                                        <span class="txt"> info@rowad-es.com </span>
+                                        <span class="txt">info@rowad-es.com</span>
                                     </a>
                                 </li>
                             </ul>
@@ -72,9 +72,9 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="foot-links text-lg-end">
-                                <a href="#"> {{ t('footer.help') }} </a>
-                                <a href="#"> {{ t('footer.privacy') }} </a>
-                                <a href="#"> {{ t('footer.terms') }} </a>
+                                <a href="#">{{ t('footer.help') }}</a>
+                                <a href="#">{{ t('footer.privacy') }}</a>
+                                <a href="#">{{ t('footer.terms') }}</a>
                             </div>
                         </div>
                     </div>
@@ -86,28 +86,5 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-
-const { t, mergeLocaleMessage } = useI18n()
-
-mergeLocaleMessage('ar', {
-    footer: {
-        about_text: 'شركة رائدة تقدم حلولاً متكاملة في مجالات التشغيل والصيانة والضيافة والنظافة، بخبرة واسعة ورؤية استراتيجية جعلتنا في طليعة الشركات المتخصصة.',
-        about_company: 'عن الشركة',
-        who_we_are: 'من نحن',
-        vision: 'رؤيتنا',
-        mission: 'رسالتنا',
-        ceo_message: 'كلمة الرئيس التنفيذي',
-        our_services: 'خدماتنا',
-        contact_us: 'تواصل معنا',
-        address: 'جدة - شارع الامير سلطان - حي النهضة',
-        // phone: '0503025916',
-        // email: 'info@rowad-es.com',
-        company_name: 'شركة رواد الاستدامة',
-        rights_reserved: 'جميع الحقوق محفوظة.',
-        design_by: 'تصميم وبرمجة',
-        help: 'مساعد',
-        privacy: 'خصوصية',
-        terms: 'شروط'
-    }
-})
+const { t } = useI18n()
 </script>

@@ -4,7 +4,7 @@
         <IncludeNavbar />
 
         <!-- inner header -->
-        <IncludeInnerHeader title="من نحن" />
+        <IncludeInnerHeader title="about-page.inner.title" />
 
         <!-- Hero section -->
         <HomeAbout />

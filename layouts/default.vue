@@ -1,75 +1,56 @@
 <template>
-    <div>
+    <!-- Show page only when translation is ready -->
+    <div v-if="ready">
         <NuxtPage />
     </div>
+
+    <!-- Optional: Add loader while waiting -->
+    <!-- <div v-else class="loading text-center py-5">
+        <p>Loading translations...</p>
+    </div> -->
 </template>
 
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useLanguage } from '~/composables/useLanguage'
-import { onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 const { currentLang } = useLanguage()
 const { setLocaleMessage, locale } = useI18n()
 
-// Fallback translations in case API request fails
-const fallbackTranslations = {
-    ar: {
-        navbar: {
-            home: 'الهوم',
-            about: 'من نحن',
-            ceo: 'كلمة الرئيس التنفيذي',
-            services: 'خدماتنا',
-            projects: 'المشاريع',
-            careers: 'الوظائف',
-            contact: 'تواصل معنا',
-            change_language: 'تغيير اللغة'
-        }
-    },
-    en: {
-        navbar: {
-            home: 'Home',
-            about: 'About Us',
-            ceo: 'CEO Message',
-            services: 'Our Services',
-            projects: 'Projects',
-            careers: 'Careers',
-            contact: 'Contact Us',
-            change_language: 'Change Language'
-        }
-    }
-}
+// Indicates if translations are ready
+const ready = ref(false)
 
-// Load translation from API or fallback if API is unavailable
+// GitHub raw file URL
+const TRANSLATION_API_URL = 'https://raw.githubusercontent.com/h-coder7/nuxt-translations/main/translations.json'
+
+// Load translation by language from API
 const loadTranslations = async (lang) => {
     try {
-        const res = await fetch('https://mocki.io/v1/4778f881-b746-4f05-8118-aa56f56a5bc3')
+        const res = await fetch(TRANSLATION_API_URL)
         const data = await res.json()
 
         if (data[lang]) {
             setLocaleMessage(lang, data[lang])
             locale.value = lang
         } else {
-            throw new Error(`No translation found for language: ${lang}`)
+            throw new Error(`No translation found for: ${lang}`)
         }
     } catch (error) {
-        console.warn(`❗ Failed to load translations from API. Falling back to local data`, error)
-
-        const fallback = fallbackTranslations[lang]
-        if (fallback) {
-            setLocaleMessage(lang, fallback)
-            locale.value = lang
-        }
+        console.warn('❗ Failed to load translations from API', error)
+    } finally {
+        ready.value = true
     }
 }
 
-// Load translations on initial mount
+// Load initial language on mount
 onMounted(() => {
     loadTranslations(currentLang.value)
 })
 
-// Reload translations when language changes
+// Reload translation when language changes
 watch(currentLang, (lang) => {
+    ready.value = false
     loadTranslations(lang)
 })
 </script>

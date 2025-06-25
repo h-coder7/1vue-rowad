@@ -75,4 +75,5 @@ import { useLanguage } from '~/composables/useLanguage'
 
 const { t } = useI18n()
 const { toggleLanguage } = useLanguage()
+console.log(t('navbar.projects'))
 </script>

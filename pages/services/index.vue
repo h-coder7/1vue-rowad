@@ -1,7 +1,7 @@
 <template>
     <div class="services-pg">
         <IncludeNavbar />
-        <IncludeInnerHeader title="الخدمات" />
+        <IncludeInnerHeader title="services-page.inner.title" />
 
         <!-- Services Section -->
         <ServicesSection :services="services" @select="selectedService = $event" />
