@@ -1,0 +1,91 @@
+/* bootstrap-ltr-override.css */
+
+/* الاتجاه العام */
+body {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Margins */
+[class*="me-"] {
+  margin-right: var(--bs-gutter-x, 0) !important;
+  margin-left: auto !important;
+}
+
+[class*="ms-"] {
+  margin-left: var(--bs-gutter-x, 0) !important;
+  margin-right: auto !important;
+}
+
+/* Paddings */
+[class*="pe-"] {
+  padding-right: var(--bs-gutter-x, 0) !important;
+  padding-left: auto !important;
+}
+
+[class*="ps-"] {
+  padding-left: var(--bs-gutter-x, 0) !important;
+  padding-right: auto !important;
+}
+
+/* Text alignment */
+.text-start {
+  text-align: left !important;
+}
+
+.text-end {
+  text-align: right !important;
+}
+
+/* Float utilities */
+.float-start {
+  float: left !important;
+}
+
+.float-end {
+  float: right !important;
+}
+
+/* Position utilities */
+.start-0 {
+  left: 0 !important;
+  right: auto !important;
+}
+
+.end-0 {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.start-50 {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+.end-50 {
+  right: 50% !important;
+  left: auto !important;
+  transform: translateX(50%) !important;
+}
+
+/* Border radius */
+.rounded-start {
+  border-top-left-radius: var(--bs-border-radius) !important;
+  border-bottom-left-radius: var(--bs-border-radius) !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.rounded-end {
+  border-top-right-radius: var(--bs-border-radius) !important;
+  border-bottom-right-radius: var(--bs-border-radius) !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Accordion arrows, if needed */
+.accordion-button::after {
+  margin-right: auto;
+  margin-left: 0;
+}

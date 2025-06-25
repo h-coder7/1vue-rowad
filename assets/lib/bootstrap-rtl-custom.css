@@ -1,0 +1,91 @@
+
+/* الاتجاه العام */
+body {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  /* Margins */
+  [class*="me-"] {
+    margin-left: var(--bs-gutter-x, 0) !important;
+    margin-right: auto !important;
+  }
+  
+  [class*="ms-"] {
+    margin-right: var(--bs-gutter-x, 0) !important;
+    margin-left: auto !important;
+  }
+  
+  /* Paddings */
+  [class*="pe-"] {
+    padding-left: var(--bs-gutter-x, 0) !important;
+    padding-right: auto !important;
+  }
+  
+  [class*="ps-"] {
+    padding-right: var(--bs-gutter-x, 0) !important;
+    padding-left: auto !important;
+  }
+  
+  /* Text alignment */
+  .text-start {
+    text-align: right !important;
+  }
+  
+  .text-end {
+    text-align: left !important;
+  }
+  
+  /* Float utilities */
+  .float-start {
+    float: right !important;
+  }
+  
+  .float-end {
+    float: left !important;
+  }
+  
+  /* Position utilities */
+  .start-0 {
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  .end-0 {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  .start-50 {
+    right: 50% !important;
+    left: auto !important;
+    transform: translateX(50%) !important;
+  }
+  
+  .end-50 {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  /* Border radius */
+  .rounded-start {
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  
+  .rounded-end {
+    border-top-left-radius: var(--bs-border-radius) !important;
+    border-bottom-left-radius: var(--bs-border-radius) !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  
+  /* Accordion arrows, if needed */
+  .accordion-button::after {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  

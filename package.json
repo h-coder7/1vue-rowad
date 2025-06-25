@@ -1,0 +1,36 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "npm-run-all --parallel watch:css dev:nuxt",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "watch:css": "sass --watch assets/scss:public/css",
+    "dev:nuxt": "nuxt dev",
+    "build:css": "sass assets/scss/main.scss public/css/main.css"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.6.0",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxt/fonts": "^0.11.4",
+    "@nuxt/scripts": "^0.11.8",
+    "@nuxtjs/i18n": "^9.5.5",
+    "@unhead/vue": "^2.0.10",
+    "axios": "^1.10.0",
+    "better-sqlite3": "^11.10.0",
+    "bootstrap": "^5.3.6",
+    "bootstrap-rtl": "^3.3.4",
+    "eslint": "^9.29.0",
+    "nuxt": "^3.17.5",
+    "swiper": "^11.2.8",
+    "vue": "^3.5.16",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.89.2"
+  }
+}

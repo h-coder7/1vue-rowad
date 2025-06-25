@@ -1,0 +1,41 @@
+{
+    "navbar": {
+      "home": "Home",
+      "about": "About Us",
+      "team": "Team",
+      "services": "Services",
+      "consulting_services": "Consulting Services",
+      "partners": "Partners",
+      "discover_more": "Discover More",
+      "contact_number": "0503025916",
+      "change_language": "Change Language"
+    },
+    "hero": {
+    "welcome": "Welcome to Rowad Alistidama Company",
+    "main": "A leading company providing integrated solutions in operation, maintenance, hospitality, and cleaning, with broad experience and a strategic vision that put us at the forefront.",
+    "contact": "Contact Us",
+    "services": "Our Services"
+  },
+  "about": {
+    "section_title": "About Us",
+    "main_heading": "Sustainability Pioneers is one of the leading companies",
+    "description_1": "in providing operations, maintenance, hospitality, and cleaning services. Since its establishment, the company has set its sights on excellence and quality, based on extensive experience and qualified human resources.",
+    "description_2": "We work according to a clear strategy aimed at achieving integration between administrative, technical, and field work teams, which gives us the ability to provide comprehensive services characterized by efficiency and professionalism."
+  },
+  "visionCards": {
+  "goals": {
+    "title": "Our Goals",
+    "text": "To be the first choice in the operational services sector by providing sustainable solutions that add real value to our clients."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "text": "To be the first choice in the operational services sector by providing sustainable solutions that add real value to our clients."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "text": "To be the first choice in the operational services sector by providing sustainable solutions that add real value to our clients."
+  }
+}
+
+}
+  

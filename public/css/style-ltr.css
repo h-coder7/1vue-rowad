@@ -1,0 +1,12 @@
+body {
+    direction: ltr;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+    font-size: 14px;
+    margin: 0 8px;
+}
+
+.navbar .fsz-16 {
+    font-size: 14px !important;
+}

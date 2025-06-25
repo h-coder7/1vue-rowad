@@ -1,0 +1,29 @@
+@use './helper' as *;
+@use "./style.scss";
+
+html[dir="ltr"] {
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    body {
+        direction: ltr;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    font-size: 14px;
+                    margin: 0 8px;
+                }
+
+                .fsz-16 {
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+
+
+}
