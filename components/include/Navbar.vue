@@ -49,7 +49,7 @@
                     <div class="links">
                         <a href="#" class="fsz-16 pe-4 me-4 border-end fw-bold d-inline-flex">
                             <i class="fas fa-comments fsz-20 main-color me-2"></i>
-                            <span class="txt"> 0503025916 </span>
+                            <span class="txt">0503025916</span>
                         </a>
                         <button @click="toggleLanguage" class="btn switch-lang fsz-16">
                             {{ t('navbar.change_language') }}
@@ -70,67 +70,9 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import axios from 'axios'
 import { useLanguage } from '~/composables/useLanguage'
 
-const { currentLang, toggleLanguage } = useLanguage()
-const { setLocaleMessage } = useI18n()
-
-const translations = ref({
-    // fallback translations if API fails or is not ready
-    ar: {
-        navbar: {
-            home: 'الرئيسية',
-            ceo: 'كلمة الرئيس التنفيذي',
-            about: 'من نحن',
-            services: 'خدماتنا',
-            projects: 'المشاريع',
-            careers: 'الوظائف',
-            change_language: 'تغيير اللغة',
-            contact: 'تواصل معنا'
-        }
-    },
-    en: {
-        navbar: {
-            home: 'Home',
-            ceo: 'CEO Message',
-            about: 'About Us',
-            services: 'Our Services',
-            projects: 'Projects',
-            careers: 'Careers',
-            change_language: 'Change Language',
-            contact: 'Get in Touch'
-        }
-    }
-})
-
-// Fetch translations from API and update i18n messages
-const loadTranslations = async (lang) => {
-    try {
-        const { data } = await axios.get(`https://your-api.com/api/translations/${lang}`)
-        translations.value[lang] = data
-        setLocaleMessage(lang, data)
-    } catch {
-        console.warn(`API not available, using fallback for: ${lang}`)
-        setLocaleMessage(lang, translations.value[lang])
-    }
-}
-
-// Load translations on mount
-onMounted(async () => {
-    await loadTranslations(currentLang.value)
-})
-
-// Update translations on language change
-watch(currentLang, async (lang) => {
-    await loadTranslations(lang)
-})
-
-// Translation function using dynamic store
-const t = (key) => {
-    const keys = key.split('.')
-    return keys.reduce((obj, k) => obj?.[k], translations.value[currentLang.value]) || key
-}
+const { t } = useI18n()
+const { toggleLanguage } = useLanguage()
 </script>

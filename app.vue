@@ -2,13 +2,13 @@
     <div>
 
         <Head>
-            <link :href="currentLang === 'ar' ? '/lib/css/bootstrap.rtl.min.css' : '/lib/css/bootstrap.min.css'" rel="stylesheet" />
-            <!-- <link rel="stylesheet" href="/swiper/css" /> -->
+            <link :href="currentLang === 'ar' ? '/lib/css/bootstrap.rtl.min.css' : '/lib/css/bootstrap.min.css'"
+                rel="stylesheet" />
             <link rel="stylesheet" href="/css/main.css" />
-            <!-- <link v-if="currentLang === 'en'" rel="stylesheet" href="/css/style-ltr.css" /> -->
         </Head>
 
-        <NuxtPage />
+        <!-- لازم نستخدم NuxtLayout علشان يحمّل layout -->
+        <NuxtLayout />
     </div>
 </template>
 
@@ -18,12 +18,17 @@ import { watch } from 'vue'
 
 const { currentLang } = useLanguage()
 
-watch(currentLang, (lang) => {
-    if (typeof document !== 'undefined') {
-        const isRTL = lang === 'ar'
-        document.body.classList.toggle('rtl', isRTL)
-        document.dir = isRTL ? 'rtl' : 'ltr'
-        document.lang = lang
-    }
-}, { immediate: true })
+// change direction
+watch(
+    currentLang,
+    (lang) => {
+        if (typeof document !== 'undefined') {
+            const isRTL = lang === 'ar'
+            document.body.classList.toggle('rtl', isRTL)
+            document.dir = isRTL ? 'rtl' : 'ltr'
+            document.lang = lang
+        }
+    },
+    { immediate: true }
+)
 </script>
