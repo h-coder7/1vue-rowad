@@ -2,12 +2,11 @@
     <div>
 
         <Head>
-            <link :href="currentLang === 'ar' ? '/lib/css/bootstrap.rtl.min.css' : '/lib/css/bootstrap.min.css'"
-                rel="stylesheet" />
+            <link :href="currentLang === 'ar' ? '/lib/css/bootstrap.rtl.min.css' : '/lib/css/bootstrap.min.css'" rel="stylesheet" />
             <link rel="stylesheet" href="/css/main.css" />
         </Head>
 
-        <!-- لازم نستخدم NuxtLayout علشان يحمّل layout -->
+        <!-- using NuxtLayout to load layout -->
         <NuxtLayout />
     </div>
 </template>
