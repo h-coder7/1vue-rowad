@@ -1,59 +1,50 @@
 <template>
-    <section class="numbers">
-        <div class="container">
-            <div class="row">
-                <div v-for="(item, i) in numberCards" :key="i" class="col-lg-3">
-                    <div class="num-card">
-                        <div class="cont">
-                            <div class="icon">
-                                <img :src="item.icon" alt="" class="img-contain" />
-                            </div>
-                            <div class="num">{{ item.number }}</div>
-                            <h6>{{ t(`numberCards.${item.key}.label`) }}</h6>
-                        </div>
-                    </div>
-                </div>
+  <section class="numbers">
+    <div class="container">
+      <div class="row">
+        <div v-for="item in numberCards" :key="item.id" class="col-lg-3">
+          <div class="num-card">
+            <div class="cont">
+              <div class="icon">
+                <img :src="item.icon" alt="icon" class="img-contain" />
+              </div>
+              <div class="num">{{ item.number }}</div>
+              <h6>{{ t(`numberCards.${item.key.replace('num-', '')}.label`) }}</h6>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
-const translations = {
-    numberCards: {
-        projects: { label: 'عدد المشاريع المنجزة' },
-        partners: { label: 'عدد الشركاء' },
-        employees: { label: 'عدد الموظفين' },
-        countries: { label: 'عدد الدول التي نخدمها' }
-    }
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+// Reactive array to store number cards data
+const numberCards = ref([])
+
+// Fetch number cards from external API
+const loadNumberCards = async () => {
+  try {
+    const res = await fetch('https://h-coder7.github.io/nuxt-files/files.json')
+    const data = await res.json()
+
+    // Filter items with keys that start with "num-" and ensure each item has an id
+    numberCards.value = data
+      .filter(item => item.key?.startsWith('num-'))
+      .map((item, index) => ({
+        ...item,
+        id: item.id ?? index + 1 // Use existing id or assign a fallback one
+      }))
+  } catch (err) {
+    console.warn('❗ Failed to load number cards:', err)
+  }
 }
 
-// دالة ترجمة بسيطة
-const t = (key) => {
-    const keys = key.split('.')
-    return keys.reduce((obj, k) => obj?.[k], translations) || key
-}
-
-const numberCards = [
-    {
-        key: 'projects',
-        number: '+32',
-        icon: '/images/icons/num1.svg'
-    },
-    {
-        key: 'partners',
-        number: '+1002',
-        icon: '/images/icons/num2.svg'
-    },
-    {
-        key: 'employees',
-        number: '+105',
-        icon: '/images/icons/num3.svg'
-    },
-    {
-        key: 'countries',
-        number: '+32',
-        icon: '/images/icons/num4.svg'
-    }
-]
+onMounted(loadNumberCards)
 </script>
+
