@@ -16,7 +16,12 @@
                                 <div class="text fsz-16 cr-666 mt-15">
                                     {{ t('about.description_2') }}
                                 </div>
-                                <NuxtLink  to="/about" class="butn rounded-3 hvr-txt-trans hvr-scale mt-30"> <div class="txt" :data-text="t('about.more_button')"><span> {{ t('about.more_button') }} </span></div> <i class="fal fa-arrow-up-left ms-2"></i> </NuxtLink>
+                                <NuxtLink to="/about" class="butn rounded-3 hvr-txt-trans hvr-scale mt-30">
+                                    <div class="txt" :data-text="t('about.more_button')">
+                                        <span> {{ t('about.more_button') }} </span>
+                                    </div>
+                                    <i class="fal fa-arrow-up-left ms-2"></i>
+                                </NuxtLink>
                             </div>
                         </div>
                     </div>
@@ -54,36 +59,9 @@
 </template>
 
 <script setup>
-const translations = {
-    about: {
-        section_title: 'من نحن',
-        main_heading: 'تُعد شركة رواد الاستدامة إحدى الشركات الرائدة',
-        description_1:
-            'في تقديم خدمات التشغيل، الصيانة، الضيافة، والنظافة. منذ تأسيسها، وضعت الشركة نصب عينيها التميز والجودة، مستندة إلى خبرات واسعة وكوادر بشرية مؤهلة.',
-        description_2:
-            'نعمل وفق استراتيجية واضحة تهدف إلى تحقيق التكامل بين فرق العمل الإداري، الفني، والميداني، مما يمنحنا القدرة على تقديم خدمات شاملة تتسم بالكفاءة والاحترافية.',
-        more_button: 'مشاهدة المزيد',
-    },
-    visionCards: {
-        goals: {
-            title: 'الأهداف',
-            text: 'نحن نركز على تحقيق أهداف استراتيجية واضحة وطموحة.',
-        },
-        mission: {
-            title: 'الرسالة',
-            text: 'رسالتنا هي توفير حلول مبتكرة وفعالة لعملائنا.',
-        },
-        vision: {
-            title: 'الرؤية',
-            text: 'نطمح إلى الريادة في مجالنا وتقديم قيمة مستدامة.',
-        },
-    },
-}
+import { useI18n } from 'vue-i18n'
 
-const t = (key) => {
-    const keys = key.split('.')
-    return keys.reduce((obj, k) => obj?.[k], translations) || key
-}
+const { t } = useI18n()
 
 const visionCards = [
     {
