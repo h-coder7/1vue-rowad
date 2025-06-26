@@ -1,7 +1,7 @@
 <template>
     <div class="process-item" :class="{ 'flex-row-reverse': reverse }">
         <div class="img">
-            <img :src="item.image" alt="" class="img-cover" />
+            <img :src="item.image" alt="timeline image" class="img-cover" />
         </div>
         <div class="info">
             <div class="num">{{ item.year }}</div>
@@ -13,7 +13,10 @@
 
 <script setup>
 defineProps({
-    item: Object,
+    item: {
+        type: Object,
+        required: true
+    },
     reverse: {
         type: Boolean,
         default: false

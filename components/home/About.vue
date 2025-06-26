@@ -59,35 +59,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { inject, computed } from 'vue'
 
 const { t } = useI18n()
-const visionCards = ref([])
-const aboutImg = ref('')
+const globalData = inject('globalData')
 
-const loadData = async () => {
-  try {
-    const res = await fetch('https://h-coder7.github.io/nuxt-files/files.json')
-    const data = await res.json()
+// Extract vision cards (goals, mission, vision)
+const visionCards = computed(() =>
+  globalData?.value
+    ?.filter(item => ['goals', 'mission', 'vision'].includes(item.key))
+    .map((item, index) => ({
+      ...item,
+      id: item.id ?? index + 1
+    })) ?? []
+)
 
-    // Filter and assign IDs if missing
-    visionCards.value = data
-      .filter(item => ['goals', 'mission', 'vision'].includes(item.key))
-      .map((item, index) => ({
-        ...item,
-        id: item.id ?? index + 1
-      }))
-
-    // Get the about section image
-    const aboutImageItem = data.find(item => item.key === 'about-sec-img')
-    if (aboutImageItem) {
-      aboutImg.value = aboutImageItem.img
-    }
-  } catch (e) {
-    console.warn('❗ Failed to load about section data:', e)
-  }
-}
-
-onMounted(loadData)
+// Extract about section image
+const aboutImg = computed(() =>
+  globalData?.value?.find(item => item.key === 'about-sec-img')?.img || ''
+)
 </script>
